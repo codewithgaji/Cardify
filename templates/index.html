@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test NIN API</title>
+  </head>
+  <body>
+    <h2>Submit NIN ID</h2>
+
+    <form id="ninForm">
+      <label for="first_name">First Name:</label>
+      <input type="text" id="first_name" name="first_name" required />
+
+      <label for="last_name">Last Name:</label>
+      <input type="text" id="last_name" name="last_name" required />
+
+      <label for="middle_name">Middle Name :</label>
+      <input type="text" id="middle_name" name="middle_name" required />
+
+      <label for="nin_number">NIN Number:</label>
+      <input type="text" id="nin_number" name="nin_number" required />
+
+      <label for="dateofbirth">Date of birth (YYYY-MM-DD):</label>
+      <input type="text" id="dateofbirth" name="dob" required />
+
+      <label for="gender">Gender:</label>
+      <input type="text" id="gender" name="gender" required />
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <h3>Response:</h3>
+    <pre id="responseOutput"></pre>
+
+    <script>
+      document
+        .getElementById("ninForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault(); // Prevent page reload
+
+          const formData = {
+            first_name: document.getElementById("first_name").value,
+            middle_name: document.getElementById("middle_name").value,
+            last_name: document.getElementById("last_name").value,
+            nin_number: document.getElementById("nin_number").value,
+            dob: document.getElementById("dateofbirth").value,
+            gender: document.getElementById("gender").value,
+          };
+
+          fetch("http://127.0.0.1:8000/nin-info/", {
+            // Adjust URL to match your API endpoint
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(formData),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              document.getElementById("responseOutput").textContent =
+                JSON.stringify(data, null, 2);
+            })
+            .catch((error) => {
+              document.getElementById("responseOutput").textContent =
+                "Error: " + error;
+            });
+        });
+    </script>
+  </body>
+</html>

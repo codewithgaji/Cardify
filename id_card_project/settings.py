@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import dj_database_url
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -26,7 +27,7 @@ SECRET_KEY = 'django-insecure-c6wr-g1w4)_0s1wtmg1a@p-lv+*)z10tsc_u$&8q^g&d)s0!3a
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['Cardify.onrender.com']
+ALLOWED_HOSTS = ['cardify-api-by76.onrender.com']
 
 
 # Application definition
@@ -77,14 +78,7 @@ WSGI_APPLICATION = 'id_card_project.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Cardify',
-        'USER': 'ID_Login',                                                                                                                                     
-        'PASSWORD': 'adminonly',
-        'HOST': 'localhost',  # or your PostgreSQL server's IP
-        'PORT': '5432',
-    }
+    'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
 }
 
 # Password validation

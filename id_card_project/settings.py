@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-c6wr-g1w4)_0s1wtmg1a@p-lv+*)z10tsc_u$&8q^g&d)s0!3a
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['cardify-api-by76.onrender.com']
+ALLOWED_HOSTS = ["cardify-api-by76.onrender.com", "127.0.0.1", "localhost"]
 
 
 # Application definition
@@ -115,10 +115,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-import os
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

@@ -60,7 +60,7 @@ class Business_Id(models.Model):
     company_logo = models.ImageField(upload_to='passports/', null=True)
     phone_number = models.CharField(max_length=100)
     email_address = models.EmailField( default="Not provided yet")
-    website = models.CharField(null=True)
+    website = models.CharField(max_length=250, null=True)
     
     def __str__(self):
         return self.full_name

@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cardify API Documentation</title>
   <link rel="stylesheet" href="{% static 'css/docs.css' %}">
-
 </head>
 <body>
   <header>
@@ -39,15 +38,14 @@ Host: cardify-api.onrender.com
 Content-Type: application/json
 
 {
-  "first_name": "John",
-  "middle_name": "Doe",
-  "last_name": "Smith",
+  "full_name": "John Doe",
+  "profile_pic": "image_url",
+  "gender": "M",
+  "address": "123 Main St",
   "nin": "12345678901",
   "dateofbirth": "2000-01-01",
-  "address": "123 Main St",
-  "state_of_origin": "Lagos",
   "country": "Nigeria",
-  "gender": "M"
+  "state_of_origin": "Lagos"
 }
     </pre>
   </section>
@@ -71,11 +69,13 @@ Content-Type: application/json
 {
   "full_name": "Acme Corporation",
   "job_title": "CEO",
+  "profile_pic": "image_url",
+  "gender": "F",
   "company_name": "Acme Inc",
+  "company_logo": "logo_url",
   "phone_number": "08012345678",
   "email_address": "info@acme.com",
-  "website": "https://www.acme.com",
-  "gender": "F"
+  "website": "https://www.acme.com"
 }
     </pre>
   </section>
@@ -97,12 +97,11 @@ Host: cardify-api.onrender.com
 Content-Type: application/json
 
 {
-  "first_name": "Jane",
-  "middle_name": "Doe",
-  "last_name": "Smith",
+  "full_name": "Jane Doe",
+  "profile_pic": "image_url",
+  "gender": "F",
   "dateofbirth": "1995-05-15",
   "placeofbirth": "Abuja",
-  "gender": "F",
   "address": "456 Side St",
   "phone_number": "08087654321",
   "license_number": "LIC1234567",

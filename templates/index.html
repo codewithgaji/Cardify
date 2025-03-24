@@ -1,69 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Test NIN API</title>
-  </head>
-  <body>
-    <h2>Submit NIN ID</h2>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ID Card Form</title>
+</head>
+<body>
+    <h2>NIN ID Card</h2>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="full_name">Full Name:</label>
+        <input type="text" id="full_name" name="full_name" required><br>
 
-    <form id="ninForm">
-      <label for="first_name">First Name:</label>
-      <input type="text" id="first_name" name="first_name" required />
+        <label for="profile_pic">Profile Picture:</label>
+        <input type="file" id="profile_pic" name="profile_pic"><br>
 
-      <label for="last_name">Last Name:</label>
-      <input type="text" id="last_name" name="last_name" required />
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender">
+            <option value="M">Male</option>
+            <option value="F">Female</option>
+        </select><br>
 
-      <label for="middle_name">Middle Name :</label>
-      <input type="text" id="middle_name" name="middle_name" required />
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address" required><br>
 
-      <label for="nin_number">NIN Number:</label>
-      <input type="text" id="nin_number" name="nin_number" required />
+        <label for="nin">NIN:</label>
+        <input type="text" id="nin" name="nin" maxlength="11" required><br>
 
-      <label for="dateofbirth">Date of birth (YYYY-MM-DD):</label>
-      <input type="text" id="dateofbirth" name="dob" required />
+        <label for="dateofbirth">Date of Birth:</label>
+        <input type="date" id="dateofbirth" name="dateofbirth"><br>
 
-      <label for="gender">Gender:</label>
-      <input type="text" id="gender" name="gender" required />
+        <label for="country">Country:</label>
+        <input type="text" id="country" name="country" required><br>
 
-      <button type="submit">Submit</button>
+        <label for="state_of_origin">State of Origin:</label>
+        <input type="text" id="state_of_origin" name="state_of_origin" required><br>
+
+        <button type="submit">Submit</button>
     </form>
 
-    <h3>Response:</h3>
-    <pre id="responseOutput"></pre>
+    <h2>Driver's License</h2>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="dl_full_name">Full Name:</label>
+        <input type="text" id="dl_full_name" name="full_name" required><br>
 
-    <script>
-      document
-        .getElementById("ninForm")
-        .addEventListener("submit", function (event) {
-          event.preventDefault(); // Prevent page reload
+        <label for="dl_dateofbirth">Date of Birth:</label>
+        <input type="date" id="dl_dateofbirth" name="dateofbirth"><br>
 
-          const formData = {
-            first_name: document.getElementById("first_name").value,
-            middle_name: document.getElementById("middle_name").value,
-            last_name: document.getElementById("last_name").value,
-            nin_number: document.getElementById("nin_number").value,
-            dob: document.getElementById("dateofbirth").value,
-            gender: document.getElementById("gender").value,
-          };
+        <label for="dl_placeofbirth">Place of Birth:</label>
+        <input type="text" id="dl_placeofbirth" name="placeofbirth" required><br>
 
-          fetch("http://127.0.0.1:8000/nin-info/", {
-            // Adjust URL to match your API endpoint
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(formData),
-          })
-            .then((response) => response.json())
-            .then((data) => {
-              document.getElementById("responseOutput").textContent =
-                JSON.stringify(data, null, 2);
-            })
-            .catch((error) => {
-              document.getElementById("responseOutput").textContent =
-                "Error: " + error;
-            });
-        });
-    </script>
-  </body>
+        <label for="dl_profile_pic">Profile Picture:</label>
+        <input type="file" id="dl_profile_pic" name="profile_pic"><br>
+
+        <label for="dl_gender">Gender:</label>
+        <select id="dl_gender" name="gender">
+            <option value="M">Male</option>
+            <option value="F">Female</option>
+        </select><br>
+
+        <label for="dl_address">Address:</label>
+        <input type="text" id="dl_address" name="address" required><br>
+
+        <label for="dl_phone_number">Phone Number:</label>
+        <input type="text" id="dl_phone_number" name="phone_number" maxlength="11" required><br>
+
+        <label for="license_number">License Number:</label>
+        <input type="text" id="license_number" name="license_number" required><br>
+
+        <label for="date_issued">Date Issued:</label>
+        <input type="date" id="date_issued" name="date_issued"><br>
+
+        <label for="expiration_date">Expiration Date:</label>
+        <input type="date" id="expiration_date" name="expiration_date"><br>
+
+        <label for="license_type">License Type:</label>
+        <input type="text" id="license_type" name="license_type" required><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <h2>Business ID</h2>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="biz_full_name">Full Name:</label>
+        <input type="text" id="biz_full_name" name="full_name" required><br>
+
+        <label for="job_title">Job Title:</label>
+        <input type="text" id="job_title" name="job_title" required><br>
+
+        <label for="biz_profile_pic">Profile Picture:</label>
+        <input type="file" id="biz_profile_pic" name="profile_pic"><br>
+
+        <label for="biz_gender">Gender:</label>
+        <select id="biz_gender" name="gender">
+            <option value="M">Male</option>
+            <option value="F">Female</option>
+        </select><br>
+
+        <label for="company_name">Company Name:</label>
+        <input type="text" id="company_name" name="company_name" required><br>
+
+        <label for="company_logo">Company Logo:</label>
+        <input type="file" id="company_logo" name="company_logo"><br>
+
+        <label for="biz_phone_number">Phone Number:</label>
+        <input type="text" id="biz_phone_number" name="phone_number" maxlength="11" required><br>
+
+        <label for="email_address">Email Address:</label>
+        <input type="email" id="email_address" name="email_address" required><br>
+
+        <label for="website">Website:</label>
+        <input type="url" id="website" name="website"><br>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
 </html>

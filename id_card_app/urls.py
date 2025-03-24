@@ -6,6 +6,7 @@ from django.conf import settings
 
 urlpatterns = [                                                                                                                                         
     path("", views.Docsdata, name="API-Documentation"),
+    path("test-form/", views.TestData, name="Test-Form"),
     path('nin-info/', views.NINInfo.as_view()),
     path('business-info/', views.BusinessInfo.as_view()),
     path('license-info/', views.DriversInfo.as_view()),

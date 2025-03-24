@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cardify API Documentation</title>
+  <link rel="stylesheet" href="/staticfiles/css/docs.css" />
+</head>
+<body>
+  <header>
+    <h1>Cardify API Documentation</h1>
+    <p>Welcome to the Cardify API documentation. This page explains how to use the endpoints.</p>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#nin-info">NIN Info</a></li>
+      <li><a href="#business-info">Business Info</a></li>
+      <li><a href="#license-info">License Info</a></li>
+    </ul>
+  </nav>
+
+  <section id="nin-info">
+    <h2>NIN Info Endpoint</h2>
+    <p><strong>URL:</strong> <code>/nin-info/</code></p>
+    <p><strong>Methods:</strong> GET, POST</p>
+    <p><strong>Description:</strong> Retrieve all NIN ID Card records with GET; create a new NIN record with POST.</p>
+    <h3>Example GET Request</h3>
+    <pre>
+GET /nin-info/ HTTP/1.1
+Host: cardify-api.onrender.com
+    </pre>
+    <h3>Example POST Request</h3>
+    <pre>
+POST /nin-info/ HTTP/1.1
+Host: cardify-api.onrender.com
+Content-Type: application/json
+
+{
+  "first_name": "John",
+  "middle_name": "Doe",
+  "last_name": "Smith",
+  "nin": "12345678901",
+  "dateofbirth": "2000-01-01",
+  "address": "123 Main St",
+  "state_of_origin": "Lagos",
+  "country": "Nigeria",
+  "gender": "M"
+}
+    </pre>
+  </section>
+
+  <section id="business-info">
+    <h2>Business Info Endpoint</h2>
+    <p><strong>URL:</strong> <code>/business-info/</code></p>
+    <p><strong>Methods:</strong> GET, POST</p>
+    <p><strong>Description:</strong> Retrieve all Business ID records with GET; create a new Business record with POST.</p>
+    <h3>Example GET Request</h3>
+    <pre>
+GET /business-info/ HTTP/1.1
+Host: cardify-api.onrender.com
+    </pre>
+    <h3>Example POST Request</h3>
+    <pre>
+POST /business-info/ HTTP/1.1
+Host: cardify-api.onrender.com
+Content-Type: application/json
+
+{
+  "full_name": "Acme Corporation",
+  "job_title": "CEO",
+  "company_name": "Acme Inc",
+  "phone_number": "08012345678",
+  "email_address": "info@acme.com",
+  "website": "https://www.acme.com",
+  "gender": "F"
+}
+    </pre>
+  </section>
+
+  <section id="license-info">
+    <h2>License Info Endpoint</h2>
+    <p><strong>URL:</strong> <code>/license-info/</code></p>
+    <p><strong>Methods:</strong> GET, POST</p>
+    <p><strong>Description:</strong> Retrieve all Driver's License records with GET; create a new Driver's License record with POST.</p>
+    <h3>Example GET Request</h3>
+    <pre>
+GET /license-info/ HTTP/1.1
+Host: cardify-api.onrender.com
+    </pre>
+    <h3>Example POST Request</h3>
+    <pre>
+POST /license-info/ HTTP/1.1
+Host: cardify-api.onrender.com
+Content-Type: application/json
+
+{
+  "first_name": "Jane",
+  "middle_name": "Doe",
+  "last_name": "Smith",
+  "dateofbirth": "1995-05-15",
+  "placeofbirth": "Abuja",
+  "gender": "F",
+  "address": "456 Side St",
+  "phone_number": "08087654321",
+  "license_number": "LIC1234567",
+  "date_issued": "2021-01-01",
+  "expiration_date": "2026-01-01",
+  "license_type": "Full"
+}
+    </pre>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Cardify. All rights reserved.</p>
+  </footer>
+</body>
+</html>

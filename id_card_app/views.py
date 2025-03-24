@@ -76,5 +76,8 @@ class BusinessInfo(APIView):
             serializer.save()
         return Response(serializer.data)
 
-def TestData(request):
-    return render(request, "index.html")
+# def TestData(request):
+#     return render(request, "index.html")
+
+def Docsdata(request):
+    return render(request, "docs.html")

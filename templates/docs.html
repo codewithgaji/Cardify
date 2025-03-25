@@ -10,29 +10,28 @@
 <body>
   <header>
     <h1>Cardify API Documentation</h1>
-    <p>Welcome to the Cardify API documentation. This page explains how to use the endpoints.</p>
+    <p>Welcome to the Cardify API documentation. Below you'll find details about each endpoint along with instructions on how to test them.</p>
   </header>
 
   <nav>
     <ul>
-      <li><a href="#nin-info">NIN Info</a></li>
-      <li><a href="#business-info">Business Info</a></li>
-      <li><a href="#license-info">License Info</a></li>
+      <li><a href="#nin-info">NIN ID Card</a></li>
+      <li><a href="#business-info">Business ID</a></li>
+      <li><a href="#license-info">Driver's License</a></li>
     </ul>
   </nav>
 
+  <!-- NIN ID Card Documentation -->
   <section id="nin-info">
-    <h2>NIN Info Endpoint</h2>
+    <h2>NIN ID Card Endpoint</h2>
     <p><strong>URL:</strong> <code>/nin-info/</code></p>
     <p><strong>Methods:</strong> GET, POST</p>
-    <p><strong>Description:</strong> Retrieve all NIN ID Card records with GET; create a new NIN record with POST.</p>
-    <h3>Example GET Request</h3>
+    <p><strong>Description:</strong> Use GET to retrieve all NIN ID Card records; use POST to create a new record.</p>
+    <h3>Example Requests</h3>
     <pre>
 GET /nin-info/ HTTP/1.1
 Host: cardify-api.onrender.com
-    </pre>
-    <h3>Example POST Request</h3>
-    <pre>
+
 POST /nin-info/ HTTP/1.1
 Host: cardify-api.onrender.com
 Content-Type: application/json
@@ -48,20 +47,20 @@ Content-Type: application/json
   "state_of_origin": "Lagos"
 }
     </pre>
+    <p>To interactively test this endpoint using a form, please visit <a href="https://cardify-api-by76.onrender.com/test-form/">/test-form/</a>.</p>
   </section>
 
+  <!-- Business ID Documentation -->
   <section id="business-info">
-    <h2>Business Info Endpoint</h2>
+    <h2>Business ID Endpoint</h2>
     <p><strong>URL:</strong> <code>/business-info/</code></p>
     <p><strong>Methods:</strong> GET, POST</p>
-    <p><strong>Description:</strong> Retrieve all Business ID records with GET; create a new Business record with POST.</p>
-    <h3>Example GET Request</h3>
+    <p><strong>Description:</strong> Use GET to retrieve all Business ID records; use POST to create a new record.</p>
+    <h3>Example Requests</h3>
     <pre>
 GET /business-info/ HTTP/1.1
 Host: cardify-api.onrender.com
-    </pre>
-    <h3>Example POST Request</h3>
-    <pre>
+
 POST /business-info/ HTTP/1.1
 Host: cardify-api.onrender.com
 Content-Type: application/json
@@ -78,20 +77,20 @@ Content-Type: application/json
   "website": "https://www.acme.com"
 }
     </pre>
+    <p>For interactive testing, please visit <a href="https://cardify-api-by76.onrender.com/test-form/">/test-form/</a>.</p>
   </section>
 
+  <!-- Driver's License Documentation -->
   <section id="license-info">
-    <h2>License Info Endpoint</h2>
+    <h2>Driver's License Endpoint</h2>
     <p><strong>URL:</strong> <code>/license-info/</code></p>
     <p><strong>Methods:</strong> GET, POST</p>
-    <p><strong>Description:</strong> Retrieve all Driver's License records with GET; create a new Driver's License record with POST.</p>
-    <h3>Example GET Request</h3>
+    <p><strong>Description:</strong> Use GET to retrieve all Driver's License records; use POST to create a new record.</p>
+    <h3>Example Requests</h3>
     <pre>
 GET /license-info/ HTTP/1.1
 Host: cardify-api.onrender.com
-    </pre>
-    <h3>Example POST Request</h3>
-    <pre>
+
 POST /license-info/ HTTP/1.1
 Host: cardify-api.onrender.com
 Content-Type: application/json
@@ -110,6 +109,7 @@ Content-Type: application/json
   "license_type": "Full"
 }
     </pre>
+    <p>To test this endpoint using an interactive form, please visit <a href="https://cardify-api-by76.onrender.com/test-form/">/test-form/</a>.</p>
   </section>
 
   <footer>

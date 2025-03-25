@@ -1,120 +1,306 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ID Card Form</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cardify API Documentation & Test Forms</title>
+  <!-- Link to external CSS if you have one, otherwise inline CSS below -->
+  <link rel="stylesheet" href="{% static 'css/docs.css' %}">
+  <style>
+    /* Overall page styling */
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    header {
+      background-color: #007BFF;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      animation: fadeIn 1s ease-out;
+    }
+    nav {
+      background-color: #333;
+    }
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+    }
+    nav ul li {
+      margin: 0 15px;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      padding: 10px 15px;
+      display: block;
+      transition: background 0.3s;
+    }
+    nav ul li a:hover {
+      background-color: #007BFF;
+    }
+    section {
+      background: white;
+      margin: 20px auto;
+      max-width: 800px;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      animation: fadeInUp 0.8s ease-out;
+    }
+    h2 {
+      color: #007BFF;
+      margin-top: 0;
+    }
+    form label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    form input, form select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    form button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #007BFF;
+      border: none;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    form button:hover {
+      background-color: #0056b3;
+    }
+    .submission-message {
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+      background-color: #4CAF50;
+      color: #fff;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 5px;
+      text-align: center;
+    }
+    .submission-message.show {
+      opacity: 1;
+    }
+    footer {
+      text-align: center;
+      padding: 15px;
+      background-color: #333;
+      color: white;
+      margin-top: 20px;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
 <body>
-    <h2>NIN ID Card</h2>
-    <form method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        <label for="full_name">Full Name:</label>
-        <input type="text" id="full_name" name="full_name" required><br>
+  <header>
+    <h1>Cardify API Documentation & Test Forms</h1>
+    <p>This page documents our API endpoints and provides test forms to simulate data submission.</p>
+  </header>
 
-        <label for="profile_pic">Profile Picture:</label>
-        <input type="file" id="profile_pic" name="profile_pic"><br>
+  <nav>
+    <ul>
+      <li><a href="#nin-form">NIN ID Card</a></li>
+      <li><a href="#dl-form">Driver's License</a></li>
+      <li><a href="#biz-form">Business ID</a></li>
+    </ul>
+  </nav>
 
-        <label for="gender">Gender:</label>
-        <select id="gender" name="gender">
-            <option value="M">Male</option>
-            <option value="F">Female</option>
-        </select><br>
-
-        <label for="address">Address:</label>
-        <input type="text" id="address" name="address" required><br>
-
-        <label for="nin">NIN:</label>
-        <input type="text" id="nin" name="nin" maxlength="11" required><br>
-
-        <label for="dateofbirth">Date of Birth:</label>
-        <input type="date" id="dateofbirth" name="dateofbirth"><br>
-
-        <label for="country">Country:</label>
-        <input type="text" id="country" name="country" required><br>
-
-        <label for="state_of_origin">State of Origin:</label>
-        <input type="text" id="state_of_origin" name="state_of_origin" required><br>
-
-        <button type="submit">Submit</button>
+  <!-- NIN ID Card Test Form -->
+  <section id="nin-form">
+    <h2>NIN ID Card Endpoint</h2>
+    <p><strong>URL:</strong> <code>/nin-info/</code></p>
+    <p><strong>Methods:</strong> GET, POST</p>
+    <p><strong>Description:</strong> Retrieve all NIN ID Card records (GET) or create a new record (POST).</p>
+    <h3>Test Form</h3>
+    <form id="ninForm" action="/nin-info/" method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      <label for="full_name">Full Name:</label>
+      <input type="text" id="full_name" name="full_name" required>
+      
+      <label for="profile_pic">Profile Picture:</label>
+      <input type="file" id="profile_pic" name="profile_pic">
+      
+      <label for="gender">Gender:</label>
+      <select id="gender" name="gender">
+        <option value="M">Male</option>
+        <option value="F">Female</option>
+      </select>
+      
+      <label for="address">Address:</label>
+      <input type="text" id="address" name="address" required>
+      
+      <label for="nin">NIN:</label>
+      <input type="text" id="nin" name="nin" maxlength="11" required>
+      
+      <label for="dateofbirth">Date of Birth:</label>
+      <input type="date" id="dateofbirth" name="dateofbirth">
+      
+      <label for="country">Country:</label>
+      <input type="text" id="country" name="country" required>
+      
+      <label for="state_of_origin">State of Origin:</label>
+      <input type="text" id="state_of_origin" name="state_of_origin" required>
+      
+      <button type="submit">Submit</button>
     </form>
+    <div id="ninMessage" class="submission-message">Submission Complete!</div>
+  </section>
 
-    <h2>Driver's License</h2>
-    <form method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        <label for="dl_full_name">Full Name:</label>
-        <input type="text" id="dl_full_name" name="full_name" required><br>
-
-        <label for="dl_dateofbirth">Date of Birth:</label>
-        <input type="date" id="dl_dateofbirth" name="dateofbirth"><br>
-
-        <label for="dl_placeofbirth">Place of Birth:</label>
-        <input type="text" id="dl_placeofbirth" name="placeofbirth" required><br>
-
-        <label for="dl_profile_pic">Profile Picture:</label>
-        <input type="file" id="dl_profile_pic" name="profile_pic"><br>
-
-        <label for="dl_gender">Gender:</label>
-        <select id="dl_gender" name="gender">
-            <option value="M">Male</option>
-            <option value="F">Female</option>
-        </select><br>
-
-        <label for="dl_address">Address:</label>
-        <input type="text" id="dl_address" name="address" required><br>
-
-        <label for="dl_phone_number">Phone Number:</label>
-        <input type="text" id="dl_phone_number" name="phone_number" maxlength="11" required><br>
-
-        <label for="license_number">License Number:</label>
-        <input type="text" id="license_number" name="license_number" required><br>
-
-        <label for="date_issued">Date Issued:</label>
-        <input type="date" id="date_issued" name="date_issued"><br>
-
-        <label for="expiration_date">Expiration Date:</label>
-        <input type="date" id="expiration_date" name="expiration_date"><br>
-
-        <label for="license_type">License Type:</label>
-        <input type="text" id="license_type" name="license_type" required><br>
-
-        <button type="submit">Submit</button>
+  <!-- Driver's License Test Form -->
+  <section id="dl-form">
+    <h2>Driver's License Endpoint</h2>
+    <p><strong>URL:</strong> <code>/license-info/</code></p>
+    <p><strong>Methods:</strong> GET, POST</p>
+    <p><strong>Description:</strong> Retrieve all Driver's License records (GET) or create a new record (POST).</p>
+    <h3>Test Form</h3>
+    <form id="dlForm" action="/license-info/" method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      <label for="dl_full_name">Full Name:</label>
+      <input type="text" id="dl_full_name" name="full_name" required>
+      
+      <label for="dl_dateofbirth">Date of Birth:</label>
+      <input type="date" id="dl_dateofbirth" name="dateofbirth">
+      
+      <label for="dl_placeofbirth">Place of Birth:</label>
+      <input type="text" id="dl_placeofbirth" name="placeofbirth" required>
+      
+      <label for="dl_profile_pic">Profile Picture:</label>
+      <input type="file" id="dl_profile_pic" name="profile_pic">
+      
+      <label for="dl_gender">Gender:</label>
+      <select id="dl_gender" name="gender">
+        <option value="M">Male</option>
+        <option value="F">Female</option>
+      </select>
+      
+      <label for="dl_address">Address:</label>
+      <input type="text" id="dl_address" name="address" required>
+      
+      <label for="dl_phone_number">Phone Number:</label>
+      <input type="text" id="dl_phone_number" name="phone_number" maxlength="11" required>
+      
+      <label for="license_number">License Number:</label>
+      <input type="text" id="license_number" name="license_number" required>
+      
+      <label for="date_issued">Date Issued:</label>
+      <input type="date" id="date_issued" name="date_issued">
+      
+      <label for="expiration_date">Expiration Date:</label>
+      <input type="date" id="expiration_date" name="expiration_date">
+      
+      <label for="license_type">License Type:</label>
+      <input type="text" id="license_type" name="license_type" required>
+      
+      <button type="submit">Submit</button>
     </form>
+    <div id="dlMessage" class="submission-message">Submission Complete!</div>
+  </section>
 
-    <h2>Business ID</h2>
-    <form method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        <label for="biz_full_name">Full Name:</label>
-        <input type="text" id="biz_full_name" name="full_name" required><br>
-
-        <label for="job_title">Job Title:</label>
-        <input type="text" id="job_title" name="job_title" required><br>
-
-        <label for="biz_profile_pic">Profile Picture:</label>
-        <input type="file" id="biz_profile_pic" name="profile_pic"><br>
-
-        <label for="biz_gender">Gender:</label>
-        <select id="biz_gender" name="gender">
-            <option value="M">Male</option>
-            <option value="F">Female</option>
-        </select><br>
-
-        <label for="company_name">Company Name:</label>
-        <input type="text" id="company_name" name="company_name" required><br>
-
-        <label for="company_logo">Company Logo:</label>
-        <input type="file" id="company_logo" name="company_logo"><br>
-
-        <label for="biz_phone_number">Phone Number:</label>
-        <input type="text" id="biz_phone_number" name="phone_number" maxlength="11" required><br>
-
-        <label for="email_address">Email Address:</label>
-        <input type="email" id="email_address" name="email_address" required><br>
-
-        <label for="website">Website:</label>
-        <input type="url" id="website" name="website"><br>
-
-        <button type="submit">Submit</button>
+  <!-- Business ID Test Form -->
+  <section id="biz-form">
+    <h2>Business ID Endpoint</h2>
+    <p><strong>URL:</strong> <code>/business-info/</code></p>
+    <p><strong>Methods:</strong> GET, POST</p>
+    <p><strong>Description:</strong> Retrieve all Business ID records (GET) or create a new record (POST).</p>
+    <h3>Test Form</h3>
+    <form id="bizForm" action="/business-info/" method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      <label for="biz_full_name">Full Name:</label>
+      <input type="text" id="biz_full_name" name="full_name" required>
+      
+      <label for="job_title">Job Title:</label>
+      <input type="text" id="job_title" name="job_title" required>
+      
+      <label for="biz_profile_pic">Profile Picture:</label>
+      <input type="file" id="biz_profile_pic" name="profile_pic">
+      
+      <label for="biz_gender">Gender:</label>
+      <select id="biz_gender" name="gender">
+        <option value="M">Male</option>
+        <option value="F">Female</option>
+      </select>
+      
+      <label for="company_name">Company Name:</label>
+      <input type="text" id="company_name" name="company_name" required>
+      
+      <label for="company_logo">Company Logo:</label>
+      <input type="file" id="company_logo" name="company_logo">
+      
+      <label for="biz_phone_number">Phone Number:</label>
+      <input type="text" id="biz_phone_number" name="phone_number" maxlength="11" required>
+      
+      <label for="email_address">Email Address:</label>
+      <input type="email" id="email_address" name="email_address" required>
+      
+      <label for="website">Website:</label>
+      <input type="url" id="website" name="website">
+      
+      <button type="submit">Submit</button>
     </form>
+    <div id="bizMessage" class="submission-message">Submission Complete!</div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Cardify. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Function to handle AJAX form submissions
+    function handleFormSubmit(formId, messageId) {
+      const form = document.getElementById(formId);
+      const messageDiv = document.getElementById(messageId);
+      form.addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent default form submission
+        const url = form.action;
+        const formData = new FormData(form);
+        // Send the data using fetch API
+        fetch(url, {
+          method: 'POST',
+          body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+          // Show submission message and reset form after success
+          messageDiv.classList.add('show');
+          setTimeout(() => {
+            messageDiv.classList.remove('show');
+            form.reset();
+          }, 2000);
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          alert('An error occurred. Please try again.');
+        });
+      });
+    }
+    
+    // Attach the AJAX submission handler to each form
+    handleFormSubmit('ninForm', 'ninMessage');
+    handleFormSubmit('dlForm', 'dlMessage');
+    handleFormSubmit('bizForm', 'bizMessage');
+  </script>
 </body>
 </html>

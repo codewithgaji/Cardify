@@ -6,7 +6,7 @@ Cardify is a RESTful API that provides digital identification solutions for NIN 
 ## **Base URL**
 All endpoints are prefixed with:
 ```
-https://cardify-api.onrender.com/
+https://cardify-api-by76.onrender.com/
 ```
 
 ---

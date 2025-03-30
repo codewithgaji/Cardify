@@ -29,10 +29,20 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["cardify-api-by76.onrender.com", "127.0.0.1", "localhost"]
 
+# This is to allow Cross Origin Resource Sharing
+
+CORS_ALLOWED_ORIGINS = [
+    "https://cardify-theta.vercel.app",  # CORS Allowed on Cardify Vercel
+    "http://127.0.0.1:8000",  # Allow local development access
+]
+
+CORS_ALLOW_CREDENTIALS = True
+
 
 # Application definition
 
 INSTALLED_APPS = [
+    'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -45,6 +55,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -132,3 +143,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+

@@ -34,6 +34,9 @@ ALLOWED_HOSTS = ["cardify-api-by76.onrender.com", "127.0.0.1", "localhost"]
 CORS_ALLOWED_ORIGINS = [
     "https://cardify-theta.vercel.app",  # CORS Allowed on Cardify Vercel
     "http://127.0.0.1:8000",  # Allow local development access
+    "http://localhost:5174",  # Add localhost:5174
+    "http://localhost:5173",
+
 ]
 
 CORS_ALLOW_CREDENTIALS = True

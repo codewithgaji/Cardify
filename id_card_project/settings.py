@@ -36,10 +36,10 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:8000",  # Allow local development access
     "http://localhost:5174",  # Add localhost:5174
     "http://localhost:5173",
-
 ]
 
 CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_ALL_ORIGINS = True
 
 
 # Application definition

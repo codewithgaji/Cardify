@@ -6,6 +6,7 @@ from rest_framework.views import APIView
 from rest_framework.decorators import api_view
 from id_card_app.models import NIN_IDCard, Business_Id, Drivers_license
 from .serializers import NINSerializer, BusinessID, DriversLicense
+from rest_framework import status
 
 # Create your views here.
 
@@ -40,9 +41,9 @@ class NINInfo(APIView):
     def post(self, request):
          serializer = NINSerializer(data=request.data)
          if serializer.is_valid():
-            serializer.save()
-
-         return Response(serializer.data)
+            instance = serializer.save()
+            return Response({"id": instance.id}, status=status.HTTP_201_CREATED) # This returns the ID
+         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
 
 # Drivers_license API view
@@ -57,8 +58,10 @@ class DriversInfo(APIView):
     def post(self, request):
         serializer = DriversLicense(data=request.data)
         if serializer.is_valid():
-            serializer.save()
-        return Response(serializer.data)
+            instance = serializer.save()
+            return Response({"id": instance.id}, status=status.HTTP_201_CREATED) # This returns the ID
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
 
 
 # Business_ID API view
@@ -73,8 +76,10 @@ class BusinessInfo(APIView):
     def post(self, request):
         serializer = BusinessID(data=request.data)
         if serializer.is_valid():
-            serializer.save()
-        return Response(serializer.data)
+           instance = serializer.save()
+           return Response({"id": instance.id}, status=status.HTTP_201_CREATED) # This returns the ID
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
 
 def TestData(request):
      return render(request, "index.html")

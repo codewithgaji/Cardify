@@ -9,13 +9,13 @@ class NINSerializer(serializers.ModelSerializer):
         model = NIN_IDCard # This is for the model name 
         fields = '__all__' # this serializes all the fields
 
-class DriversLicense(serializers.ModelSerializer):
+class Driver_Serializer(serializers.ModelSerializer):
     class Meta:
         model = Drivers_license
         fields = '__all__'
 
 
-class BusinessID(serializers.ModelSerializer):
+class Business_Serializer(serializers.ModelSerializer):
     class Meta:
         model = Business_Id
         fields = '__all__'

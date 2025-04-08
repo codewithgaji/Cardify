@@ -15,7 +15,6 @@ class NIN_IDCard(models.Model):
     profile_pic = models.ImageField(upload_to='passports/', null=True)
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES, default="Unknown")
     address = models.CharField(max_length=250, default="Unknown")
-    nin = models.CharField(max_length=11)    
     dateofbirth = models.DateField(null=True, blank=True)
     country = models.CharField(max_length=100, default="Unknown")
     state_of_origin = models.CharField(max_length=250, default="Unknown")

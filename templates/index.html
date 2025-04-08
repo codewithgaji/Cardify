@@ -135,7 +135,7 @@
     <p><strong>Methods:</strong> GET, POST</p>
     <p><strong>Description:</strong> Retrieve all NIN ID Card records (GET) or create a new record (POST).</p>
     <h3>Test Form</h3>
-    <form id="ninForm" action="/nin-info/<int:id>/" method="POST" enctype="multipart/form-data">
+    <form id="ninForm" action="/nin-info/" method="POST" enctype="multipart/form-data">
       {% csrf_token %}
       <label for="full_name">Full Name:</label>
       <input type="text" id="full_name" name="full_name" required>
@@ -176,7 +176,7 @@
     <p><strong>Methods:</strong> GET, POST</p>
     <p><strong>Description:</strong> Retrieve all Driver's License records (GET) or create a new record (POST).</p>
     <h3>Test Form</h3>
-    <form id="dlForm" action="/license-info/<int:id>/" method="POST" enctype="multipart/form-data">
+    <form id="dlForm" action="/license-info/" method="POST" enctype="multipart/form-data">
       {% csrf_token %}
       <label for="dl_full_name">Full Name:</label>
       <input type="text" id="dl_full_name" name="full_name" required>
@@ -226,7 +226,7 @@
     <p><strong>Methods:</strong> GET, POST</p>
     <p><strong>Description:</strong> Retrieve all Business ID records (GET) or create a new record (POST).</p>
     <h3>Test Form</h3>
-    <form id="bizForm" action="/business-info/<int:id>/" method="POST" enctype="multipart/form-data">
+    <form id="bizForm" action="/business-info/" method="POST" enctype="multipart/form-data">
       {% csrf_token %}
       <label for="biz_full_name">Full Name:</label>
       <input type="text" id="biz_full_name" name="full_name" required>

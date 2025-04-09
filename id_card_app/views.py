@@ -47,6 +47,8 @@ class NINInfo(APIView):
             return Response(serializer.data)
     
     def post(self, request):
+         print("🚀 Incoming Data:", request.data)  #Debugging line to inspect frontend payload
+        
          serializer = NINSerializer(data=request.data)
          if serializer.is_valid():
             instance = serializer.save()
@@ -71,6 +73,8 @@ class DriversInfo(APIView):
             return Response(serializer.data)
     
     def post(self, request):
+        print("🚀 Incoming Data:", request.data)  # 🧪 Debugging line to inspect frontend payload
+        
         serializer = Driver_Serializer(data=request.data)
         if serializer.is_valid():
             instance = serializer.save()
@@ -96,6 +100,8 @@ class BusinessInfo(APIView):
             return Response(serializer.data)
     
     def post(self, request):
+        print("🚀 Incoming Data:", request.data)  # 🧪 Debugging line to inspect frontend payload
+        
         serializer = Business_Serializer(data=request.data)
         if serializer.is_valid():
            instance = serializer.save()

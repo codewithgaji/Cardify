@@ -36,14 +36,14 @@ class NINInfo(APIView):
         if id is not None:
             try:
                 NIN = NIN_IDCard.objects.get(pk=id) # Query the data set                                                                                                                                                 
-                serialize_nin = NINSerializer(NIN, many=True) # set a var_name and set it equals to the serializer class created and then pass in the query and set 'many= True'                                                                                                                                     
+                serialize_nin = NINSerializer(NIN) # set a var_name and set it equals to the serializer class created and then pass in the query and set 'many= True'                                                                                                                                     
                 return Response(serialize_nin.data)
             except NIN_IDCard.DoesNotExist:
                 return Response({'error': 'NIN record not found'}, status=404)
         
         else:
             nin = NIN_IDCard.objects.all()
-            serializer = NINSerializer(nin, many=True)
+            serializer = NINSerializer(nin)
             return Response(serializer.data)
     
     def post(self, request):
@@ -60,14 +60,14 @@ class DriversInfo(APIView):
         if id is not None:
             try:
                 license = Drivers_license.objects.get(pk=id) # Query the data set                                                                                                                                                 
-                serialize_license = Driver_Serializer(license, many=True) # set a var_name and set it equals to the serializer class created and then pass in the query and set 'many= True'                                                                                                                                     
+                serialize_license = Driver_Serializer(license) # set a var_name and set it equals to the serializer class created and then pass in the query and set 'many= True'                                                                                                                                     
                 return Response(serialize_license.data)
             except Driver_Serializer.DoesNotExist:
                 return Response({'error': 'Drivers license record not found'}, status=404)
         
         else:
             license = Drivers_license.objects.all()
-            serializer = Driver_Serializer(license, many=True)
+            serializer = Driver_Serializer(license)
             return Response(serializer.data)
     
     def post(self, request):
@@ -85,14 +85,14 @@ class BusinessInfo(APIView):
         if id is not None:
             try:
                 business = Business_Id.objects.get(pk=id) # Query the data set                                                                                                                                                 
-                business_serializer = Business_Serializer(business, many=True) # set a var_name and set it equals to the serializer class created and then pass in the query and set 'many= True'                                                                                                                                     
+                business_serializer = Business_Serializer(business) # set a var_name and set it equals to the serializer class created and then pass in the query and set 'many= True'                                                                                                                                     
                 return Response(business_serializer.data)
             except Business_Serializer.DoesNotExist:
                 return Response({'error': 'Business Id record not found'}, status=404)
         
         else:
             business  = Business_Id.objects.all()
-            serializer = Driver_Serializer(business, many=True)
+            serializer = Driver_Serializer(business)
             return Response(serializer.data)
     
     def post(self, request):

@@ -64,7 +64,7 @@ class DriversInfo(APIView):
                 license = Drivers_license.objects.get(pk=id) # Query the data set                                                                                                                                                 
                 serialize_license = Driver_Serializer(license) # set a var_name and set it equals to the serializer class created and then pass in the query and set 'many= True'                                                                                                                                     
                 return Response(serialize_license.data)
-            except Driver_Serializer.DoesNotExist:
+            except Drivers_license.DoesNotExist:
                 return Response({'error': 'Drivers license record not found'}, status=404)
         
         else:
@@ -91,12 +91,12 @@ class BusinessInfo(APIView):
                 business = Business_Id.objects.get(pk=id) # Query the data set                                                                                                                                                 
                 business_serializer = Business_Serializer(business) # set a var_name and set it equals to the serializer class created and then pass in the query and set 'many= True'                                                                                                                                     
                 return Response(business_serializer.data)
-            except Business_Serializer.DoesNotExist:
+            except Business_Id.DoesNotExist:
                 return Response({'error': 'Business Id record not found'}, status=404)
         
         else:
             business  = Business_Id.objects.all()
-            serializer = Driver_Serializer(business)
+            serializer = Business_Serializer(business)
             return Response(serializer.data)
     
     def post(self, request):

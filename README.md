@@ -180,7 +180,3 @@ This project is open-source and licensed under the MIT License.
 
 ---
 
-## **Final Notes**
-- This README provides **detailed documentation** on **API usage** and **how to integrate it** into Django templates.
-- It includes **error handling**, **example AJAX requests**, and **expected data formats**.
-- **Make sure your frontend dev checks `/test-form/` for testing API calls**.

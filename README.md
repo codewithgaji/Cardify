@@ -1,7 +1,7 @@
 # Welcome to Cardify
 ## Cardify API Documentation
 
-Cardify is a RESTful API that provides digital identification solutions for NIN ID cards, Business IDs, and Driver’s Licenses. This API allows users to create, retrieve, and manage identity records.
+Cardify is a RESTful API that provides digital identification solutions for NIN ID cards, Business IDs, and Driver’s Licenses. This API allows users to create, retrieve, and manage identity
 
 ## **Base URL**
 All endpoints are prefixed with:
